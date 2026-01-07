@@ -1,0 +1,31 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "artworks"
+    label: "Artworks"
+    folder: "content/artworks"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "profile"
+    label: "Profile"
+    folder: "content/profile"
+    create: false
+    files:
+      - label: "Main profile"
+        name: "main-profile"
+        file: "content/profile/main.md"
+        fields:
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Avatar", name: "avatar", widget: "image" }
+          - { label: "Bio", name: "bio", widget: "text" }
